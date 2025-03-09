@@ -16,9 +16,14 @@ const nextConfig = {
     // https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors
     ignoreBuildErrors: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/webapp-conversation' : '', // 更新为实际仓库名称
+  output: 'export',
   images: {
     unoptimized: true, // 对于 GitHub Pages 部署需要此配置
+  },
+  basePath: process.env.NODE_ENV === 'production' ? '/webapp-conversation' : '', // 更新为实际仓库名称
+  // 禁用服务端API路由
+  rewrites: async () => {
+    return [];
   },
 }
 
