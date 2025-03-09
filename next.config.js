@@ -16,11 +16,10 @@ const nextConfig = {
     // https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors
     ignoreBuildErrors: true,
   },
-  output: 'export',  // 启用静态导出
+  basePath: process.env.NODE_ENV === 'production' ? '/webapp-conversation' : '', // 更新为实际仓库名称
   images: {
     unoptimized: true, // 对于 GitHub Pages 部署需要此配置
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/webapp-conversation' : '', // 更新为实际仓库名称
 }
 
 module.exports = nextConfig
